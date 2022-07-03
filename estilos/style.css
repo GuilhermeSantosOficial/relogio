@@ -14,12 +14,14 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #2f363e;
+    /* background-color: #2f363e; */
+    background-color: rgba(189, 54, 54, 0.568);
 }
 
 .conteiner{
     position: relative;
-    background-color: #2f363e;
+    /* background-color: #2f363e; */
+    background-color: rgba(189, 54, 54, 0.432);
     border-radius: 20px;
     border-top-left-radius: 225px;
     border-top-right-radius: 225px;
@@ -38,7 +40,8 @@ body{
     position: relative;
     width: 450px;
     height: 450px;
-    background-color: #2f363e;
+    /* background-color: #2f363e; */
+    background-color: rgba(189, 54, 54, 0.438);
     border-radius: 50%;
     box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
@@ -55,7 +58,8 @@ body{
     position: absolute;
     width: 8px;
     height: 8px;
-    background-color: #2f363e;
+    /* background-color: #2f363e; */
+    background-color: rgba(189, 54, 54, 0.438);
     border: 3px solid white;
     border-radius: 50%;
     z-index: 100000;
@@ -64,7 +68,7 @@ body{
 .relogio > span{
     position: absolute;
     inset: 20px;
-    color: white;
+    color: black;
     text-align: center;
     /* 360 / 12 = 30deg */
     transform: rotate(calc(30deg * var(--i)));
