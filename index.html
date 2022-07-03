@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Relógio | Analógico e Digital</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="relogio">
+
+            <div class="circulo" style="--cores: #04fc43;" id="cs"><i></i></div>
+            <div class="circulo circulo2" style="--cores: #fee800;" id="cm"><i></i></div>
+            <div class="circulo circulo3" style="--cores: #ff2972;" id="ch"><i></i></div>
+
+            <span style="--i:1;"><b>1</b></span>
+            <span style="--i:2;"><b>2</b></span>
+            <span style="--i:3;"><b>3</b></span>
+            <span style="--i:4;"><b>4</b></span>
+            <span style="--i:5;"><b>5</b></span>
+            <span style="--i:6;"><b>6</b></span>
+            <span style="--i:7;"><b>7</b></span>
+            <span style="--i:8;"><b>8</b></span>
+            <span style="--i:9;"><b>9</b></span>
+            <span style="--i:10;"><b>10</b></span>
+            <span style="--i:11;"><b>11</b></span>
+            <span style="--i:12;"><b>12</b></span>
+        </div>
+
+        <!--Relógio digital-->
+
+        <div id="tempo">
+            <div id="horas" style="--cores: #ff2972;">00</div>
+            <div id="minutos" style="--cores: #fee800;">00</div>
+            <div id="segundos" style="--cores: #04fc43;">00</div>
+            <div id="ampm">AM</div>
+        </div>
+
+    </div>
+
+    <script>
+        let cs = window.document.getElementById("cs")
+        let cm = window.document.getElementById("cm")
+        let ch = window.document.getElementById("ch")
+
+        setInterval(() =>{
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * 6;
+            let ss = day.getSeconds() * 6;
+            
+            cs.style.transform = `rotateZ(${ss}deg)`;
+            cm.style.transform = `rotateZ(${mm}deg)`;
+            ch.style.transform = `rotateZ(${hh+(mm/12)}deg)`
+
+            //Relógio digital
+
+            let horas = window.document.getElementById("horas")
+            let minutos = window.document.getElementById("minutos")
+            let segundos = window.document.getElementById("segundos")
+            let ampm = window.document.getElementById("ampm")
+
+           let h = new Date().getHours();
+           let m = new Date().getMinutes();
+           let s = new Date().getSeconds();
+
+           let am = h >= 12 ? "PM" : "AM";
+
+           //convertendo relógio de 24h para 12h
+           if (h > 12){
+            h = h - 12
+           }
+
+           //adicionando zero antes dos números solos
+           h = (h < 10) ? "0" + h : h
+           m = (m < 10) ? "0" + m : m
+           s = (s < 10) ? "0" + s : s
+ 
+           horas.innerHTML = h;
+           minutos.innerHTML = m;
+           segundos.innerHTML = s;
+           ampm.innerHTML = am;
+
+        })
+
+    </script>
+</body>
+</html>
